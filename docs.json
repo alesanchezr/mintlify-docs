@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "LearnPack Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#4F46E5",
+    "light": "#EEF2FF",
+    "dark": "#3730A3"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -14,36 +14,97 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "What is LearnPack",
+              "Key Features & Benefits",
+              "LearnPack vs Competition"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Getting Started",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation",
-              "only-for-students/hello-students"
+              "essentials/Quickstart: Create your first course in 5 minutes",
+              "essentials/Setting up your account",
+              "essentials/Importing PDFs, videos, and slides",
+              "essentials/Publishing your first package"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Creating Courses",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              {
+                "group": "Create from Existing Material",
+                "pages": [
+                  "creating-courses/Converting a PDF into an interactive course",
+                  "creating-courses/Converting a presentation into a tutorial",
+                  "creating-courses/Converting a workshop into a tutorial",
+                  "creating-courses/Creating interactive tutorials from YouTube videos (with transcripts)"
+                ]
+              },
+              {
+                "group": "Create from Scratch (AI-Assisted)",
+                "pages": [
+                  "creating-courses/Adding quizzes, projects, and open-ended tasks",
+                  "creating-courses/Adding diagrams to your LearnPack course",
+                  "creating-courses/Adding images to your courses and packages",
+                  "creating-courses/Best practices for course design"
+                ]
+              }
             ]
           },
           {
-            "group": "AI tools",
+          "group": "Use Cases",
+          "pages": [
+            {
+              "group": "Teachers & Trainers",
+              "pages": [
+                "use-cases/Interactive classrooms at scale",
+                "use-cases/Reducing course creation time and cost"
+              ]
+            },
+            {
+              "group": "Companies (HR & Training)",
+              "pages": [
+                "use-cases/Creating onboarding programs with LearnPack",
+                "use-cases/Performance reviews with LearnPack",
+                "use-cases/How LearnPack cuts training costs by 80%"
+              ]
+            },
+            {
+              "group": "Students",
+              "pages": [
+                "use-cases/Preparing for university exams with LearnPack",
+                "use-cases/Getting certified in any skill with LearnPack"
+              ]
+            }
+          ]
+        },
+          {
+            "group": "Publishing & Exports",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "publishing-and-exports/How to publish a LearnPack package",
+              "publishing-and-exports/Exporting to SCORM and embedding in LMS",
+              "publishing-and-exports/Exporting LearnPack packages to ePub",
+              "publishing-and-exports/Creating a book with LearnPack and publishing it",
+              "publishing-and-exports/Ghostwriting with LearnPack (ePub authoring workflow)"
+            ]
+          },
+           {
+            "group": "Rigobot Tutor (AI Support)",
+            "pages": [
+              "rigobot/How Rigobot works",
+              "rigobot/Contextual guidance and Socratic learning",
+              "rigobot/Multilingual tutoring and accessibility",
+              "rigobot/How Rigobot improves completion rates"
+            ]
+          },
+          {
+            "group": "Help & Troubleshooting",
+            "pages": [
+              "help/FAQs",
+              "help/Common issues and solutions",
+              "help/Contact support"
             ]
           }
         ]
@@ -90,8 +151,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/svglight.",
+    "dark": "/logo/learnpack.png"
   },
   "navbar": {
     "links": [
