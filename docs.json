@@ -16,18 +16,18 @@
           {
             "group": "Introduction",
             "pages": [
-              "What is LearnPack",
-              "Key Features & Benefits",
-              "LearnPack vs Competition"
+              "what-is-learnPack",
+              "key-features-&-benefits",
+              "learnpack-vs-competition"
             ]
           },
           {
             "group": "Getting Started",
             "pages": [
-              "essentials/Quickstart: Create your first course in 5 minutes",
-              "essentials/Setting up your account",
-              "essentials/Importing PDFs, videos, and slides",
-              "essentials/Publishing your first package"
+              "getting-started/create-your-first-course-in-5-minutes",
+              "getting-started/setting-up-your-account",
+              "getting-started/importing-pdfs-videos-and-slides",
+              "getting-started/publishing-your-first-package"
             ]
           },
           {
@@ -36,19 +36,19 @@
               {
                 "group": "Create from Existing Material",
                 "pages": [
-                  "creating-courses/Converting a PDF into an interactive course",
-                  "creating-courses/Converting a presentation into a tutorial",
-                  "creating-courses/Converting a workshop into a tutorial",
-                  "creating-courses/Creating interactive tutorials from YouTube videos (with transcripts)"
+                  "creating-courses/converting-a-pdf-into-an-interactive-course",
+                  "creating-courses/converting-a-presentation-into-a-course",
+                  "creating-courses/converting-a-workshop-into-a-course",
+                  "creating-courses/creating-interactive-tutorials-from-youTube-videos"
                 ]
               },
               {
                 "group": "Create from Scratch (AI-Assisted)",
                 "pages": [
-                  "creating-courses/Adding quizzes, projects, and open-ended tasks",
-                  "creating-courses/Adding diagrams to your LearnPack course",
-                  "creating-courses/Adding images to your courses and packages",
-                  "creating-courses/Best practices for course design"
+                  "creating-courses/adding-quizzes-projects-and-open-ended-tasks",
+                  "creating-courses/adding-diagrams-to-your-learnpack-course",
+                  "creating-courses/adding-images-to-your-courses-and-packages",
+                  "creating-courses/best-practices-for-course-design"
                 ]
               }
             ]
@@ -59,23 +59,23 @@
             {
               "group": "Teachers & Trainers",
               "pages": [
-                "use-cases/Interactive classrooms at scale",
-                "use-cases/Reducing course creation time and cost"
+                "use-cases/interactive-classrooms-at-scale",
+                "use-cases/reducing-course-creation-time-and-cost"
               ]
             },
             {
               "group": "Companies (HR & Training)",
               "pages": [
-                "use-cases/Creating onboarding programs with LearnPack",
-                "use-cases/Performance reviews with LearnPack",
-                "use-cases/How LearnPack cuts training costs by 80%"
+                "use-cases/creating-onboarding-programs-with-learnpack",
+                "use-cases/performance-reviews-with-learnpack",
+                "use-cases/how-learnpack-cuts-training-costs-by-80%"
               ]
             },
             {
               "group": "Students",
               "pages": [
-                "use-cases/Preparing for university exams with LearnPack",
-                "use-cases/Getting certified in any skill with LearnPack"
+                "use-cases/preparing-for-university-exams-with-learnpack",
+                "use-cases/getting-certified-in-any-skill-with-learnpack"
               ]
             }
           ]
@@ -83,15 +83,23 @@
           {
             "group": "Publishing & Exports",
             "pages": [
-              "publishing-and-exports/How to publish a LearnPack package",
-              "publishing-and-exports/Exporting to SCORM and embedding in LMS",
-              "publishing-and-exports/Exporting LearnPack packages to ePub",
-              "publishing-and-exports/Creating a book with LearnPack and publishing it",
-              "publishing-and-exports/Ghostwriting with LearnPack (ePub authoring workflow)"
+              "publishing-and-exports/how-to-publish-a-learnpack-package",
+              "publishing-and-exports/exporting-to-scorm-and-embedding-in-lms",
+              "publishing-and-exports/exporting-learnpack-packages-to-epub",
+              "publishing-and-exports/creating-a-book-with-learnpack-and-publishing-it",
+              "publishing-and-exports/ghostwriting-with-learnpack"
             ]
           },
            {
-            "group": "Rigobot Tutor (AI Support)",
+            "group": "AI Tutoring with Rigobot",
+            "pages": [
+              "rigobot/how-rigobot-works",
+              "rigobot/contextual-guidance-and-socratic-learning",
+              "rigobot/multilingual-tutoring-and-accessibility",
+              "rigobot/how-rigobot-improves-completion-rates"
+            ]
+          },{
+            "group": "Course Maintenance & Approval",
             "pages": [
               "rigobot/How Rigobot works",
               "rigobot/Contextual guidance and Socratic learning",
@@ -103,7 +111,7 @@
             "group": "Help & Troubleshooting",
             "pages": [
               "help/FAQs",
-              "help/Common issues and solutions",
+              "help/common-issues-and-solutions",
               "help/Contact support"
             ]
           }
@@ -142,8 +150,8 @@
     }
   },
   "logo": {
-    "light": "/logo/svglight.",
-    "dark": "/logo/learnpack.png"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "navbar": {
     "links": [
