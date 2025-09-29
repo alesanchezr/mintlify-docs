@@ -68,7 +68,7 @@
               "pages": [
                 "use-cases/creating-onboarding-programs-with-learnpack",
                 "use-cases/performance-reviews-with-learnpack",
-                "use-cases/how-learnpack-cuts-training-costs-by-80%"
+                "use-cases/how-learnpack-cuts-training-costs-by-80"
               ]
             },
             {
@@ -93,7 +93,7 @@
            {
             "group": "AI Tutoring with Rigobot",
             "pages": [
-              "rigobot/how-rigobot-works",
+              "rigobot/how-learnpacks-ai-mentor-tutor-works",
               "rigobot/contextual-guidance-and-socratic-learning",
               "rigobot/multilingual-tutoring-and-accessibility",
               "rigobot/how-rigobot-improves-completion-rates"
@@ -101,7 +101,7 @@
           },{
             "group": "Course Maintenance & Approval",
             "pages": [
-              "rigobot/How Rigobot works",
+              "rigobot/How LearnPack's AI mentor Tutor Works",
               "rigobot/Contextual guidance and Socratic learning",
               "rigobot/Multilingual tutoring and accessibility",
               "rigobot/How Rigobot improves completion rates"
