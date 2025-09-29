@@ -17,7 +17,7 @@
             "group": "Introduction",
             "pages": [
               "what-is-learnPack",
-              "key-features-&-benefits",
+              "key-features-and-benefits",
               "learnpack-vs-competition"
             ]
           },
@@ -101,10 +101,10 @@
           },{
             "group": "Course Maintenance & Approval",
             "pages": [
-              "rigobot/How LearnPack's AI mentor Tutor Works",
-              "rigobot/Contextual guidance and Socratic learning",
-              "rigobot/Multilingual tutoring and accessibility",
-              "rigobot/How Rigobot improves completion rates"
+              "maintenance-approval/overview",
+              "maintenance-approval/rigobot-authoring-assistant",
+              "maintenance-approval/quality-review-checklist",
+              "maintenance-approval/approval-workflow-and-versioning"
             ]
           },
           {
