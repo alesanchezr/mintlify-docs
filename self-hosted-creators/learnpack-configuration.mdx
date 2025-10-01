@@ -1,0 +1,264 @@
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>What this page covers:</span></b> how to configure <b>learn.json</b> for authors. Set editor mode and agent, control authentication and assessment, choose grading, define paths, and enable delivery. Includes examples for <b>Gitpod</b> and <b>Codespaces</b>. ✅
+</Callout>
+
+## The `learn.json`
+
+The `learn.json` file is where all teacher-side configuration lives. You can change the following properties:
+
+> **Note:** Properties marked as optional in your project may be inferred by LearnPack based on the exercises.
+
+- `port`: The port where the instructions will be hosted. Default: `3000`.
+- `authentication`: Object with authentication options.
+  - `mandatory`: If `true`, the user must log in before starting.
+
+```json
+  {
+    "authentication": {
+      "mandatory": true
+    }
+  }
+```
+
+* `assessment`: Object with assessment options.
+
+  * `maxQuizRetries`: Maximum quiz retries. Default: `3`.
+
+  ```json
+  {
+    "assessment": {
+      "maxQuizRetries": 3
+    }
+  }
+  ```
+
+* `editor`: Object with editor options.
+
+  * `mode`: `"extension"` (VS Code plugin) or `"preview"` (local without VS Code).
+  * `agent`: Where instructions render: `"vscode"` or `"os"`.
+  * `version`: UI version. Defaults to latest. Example `"5.0"` uses the latest `5.0.x`.
+
+  ```json
+  {
+    "editor": {
+      "mode": "extension",
+      "agent": "vscode",
+      "version": "5.0"
+    }
+  }
+  ```
+
+* `dirPath`: Path to the configuration directory. Default: `.learn` at repo root.
+
+* `configPath`: Path to the configuration file. Default: `learn.json`.
+
+* `outputPath`: Path to the compiled output. Default: `.learn/dist`.
+
+* `publicPath`: Public path where the result is hosted. Default: `/preview`.
+
+* `publicUrl`: URL where the instructions will be hosted. Depends on the agent.
+
+* `grading`: Grading mode for the tutorial. See **[Grading LearnPack Tutorials](/self-hosted/creators/grading-learnpack-tutorials)**.
+
+* `exercisesPath`: Path to the folder with the exercises. Often the repo root.
+
+* `disabledActions`: Array of actions to disable (`Build`, `Reset`, `Test`, `Tutorial`).
+
+* `slug`: The tutorial name. Auto-generated, but can be changed.
+
+* `title`: The tutorial title. Use descriptive, SEO-friendly wording.
+
+  ```json
+  {
+    "title": {
+      "es": "Un titulo corto en español",
+      "en": "Short title in english"
+    }
+  }
+  ```
+
+* `preview`: Image URL for the tutorial introduction.
+
+* `repository`: Link to the tutorial repository.
+
+* `description`: Multilingual description of the tutorial. Include topics, technologies, and learner outcomes.
+
+  ```json
+  {
+    "description": {
+      "es": "Descripcion en español",
+      "en": "English description"
+    }
+  }
+  ```
+
+* `duration`: Estimated time to finish the tutorial.
+
+* `difficulty`: One of `easy`, `beginner`, `intermediate`, `hard`.
+
+* `projectType`: `"tutorial"` or `"project"`. Interactive packages are “tutorials”.
+
+* `autoPlay`: If `true`, LearnPack starts automatically in VS Code.
+
+* `video`: Intro video URLs per language.
+
+  ```json
+  {
+    "video": {
+      "intro": {
+        "es": "www.example.url",
+        "en": "www.example_video.url"
+      }
+    }
+  }
+  ```
+
+* `bugs`: URL to report bugs found in the tutorial.
+
+* `webpackTemplate`: Custom webpack template for your tutorial.
+
+### Delivery configuration
+
+Use `delivery` to enforce a specific submission method:
+
+```json
+{
+  "delivery": {
+    "instructions": {
+      "us": "Paste the URL of the Google Sheets template with the different strategies discussed during the game",
+      "es": "Agrega el URL al document de Google Sheets con las diferentes strategies discutidas"
+    },
+    "formats": ["url"],
+    "regex": "https://docs.google.com/"
+  }
+}
+```
+
+#### Delivering a flag as project submission
+
+Some projects use a CTF-style flag:
+
+```json
+{
+  "delivery": {
+    "instructions": {
+      "us": "Paste the flag you found using the format FLAG{hash}",
+      "es": "Agrega la bandera que encontraste usando el formato FLAG{hash}"
+    },
+    "formats": ["flags"],
+    "quantity": 1
+  }
+}
+```
+
+<Callout type="tip">
+<b>Tip:</b> If a student must collect more than one flag, increase <b>quantity</b>. The system ensures all are submitted.
+</Callout>
+
+## Editor options at a glance
+
+| Setting            | Values                 | Where it opens                     | When to use                                  |
+| ------------------ | ---------------------- | ---------------------------------- | -------------------------------------------- |
+| **editor.mode**    | `extension`, `preview` | VS Code extension or local preview | Match your development flow.                 |
+| **editor.agent**   | `vscode`, `os`         | VS Code or browser                 | Keep agent consistent with your environment. |
+| **editor.version** | e.g. `5.0`             | Latest 5.0.x UI                    | Pin a major.minor if needed.                 |
+
+<Callout type="info">
+<b>Heads-up:</b> If LearnPack detects a different agent than the one suggested in <b>learn.json</b>, it shows a warning to preserve the best experience.
+</Callout>
+
+## Compiler plugins
+
+LearnPack supports **python**, **javascript**, **html**, **css**, **dom**, **react** via plugins:
+
+* **[@learnpack/html](https://4geeks.com/docs/learnpack/building-html-css-tutorials)**: HTML and CSS grading and compilation.
+* **[@learnpack/node](https://4geeks.com/docs/learnpack/building-javascript-tutorials)**: JavaScript and Node.js tutorials.
+* **[@learnpack/python](https://4geeks.com/docs/learnpack/building-python-tutorials)**: Python 3 with pyUnit integration.
+* **[@learnpack/dom](https://4geeks.com/docs/learnpack/building-dom-tutorials)**: Webpack build and Jest for DOM testing.
+* **[@learnpack/react](https://4geeks.com/docs/learnpack/building-react-tutorials)**: React 18 via Webpack and Jest.
+
+Install a plugin:
+
+```bash
+learnpack plugins:install <name-of-plugin>
+```
+
+Example:
+
+```bash
+learnpack plugins:install @learnpack/html
+```
+
+<Callout type="success">
+<b>Good to know:</b> LearnPack can auto-install the required plugin based on your exercises. 👀
+</Callout>
+
+## Cloud provisioning
+
+LearnPack does not install tech stacks for your tutorials. Use **Gitpod** or **GitHub Codespaces** to remove setup and minimize friction. Provisioning vendors can prepare the environment, then LearnPack starts immediately.
+
+### Provisioning with Gitpod
+
+[Gitpod](https://www.gitpod.io/) uses a root-level <code>.gitpod.yml</code>:
+
+> Define Docker image, language versions, and any tools your tutorial needs.
+
+![](/images/gitpod.gif)
+
+### Provisioning with GitHub Codespaces
+
+**Codespaces** provides a customizable cloud dev environment. Preconfigure dependencies and tools so learners can start fast.
+
+**Example**: `.devcontainer/devcontainers.json`
+
+```json
+{
+  "name": "Node.js",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "workbench.editorAssociations": {
+          "*.md": "vscode.markdown.preview.editor"
+        }
+      },
+      "extensions": ["learn-pack.learnpack-vscode"]
+    }
+  },
+  "onCreateCommand": "npm i jest@24.8.0 -g && npm i @learnpack/learnpack@2.1.39 -g && learnpack plugins:install @learnpack/node@1.1.5 && learnpack plugins:install @learnpack/html@1.1.2"
+}
+```
+
+## Next up
+
+<Columns cols={2}>
+
+  <div>
+    <Card title="LearnPack Quick Start" href="/self-hosted/creators/learnpack-quick-start" icon="rocket">
+      Install globally, initialize a project, and scaffold exercises.
+    </Card>
+
+    <Card title="Grading LearnPack Tutorials" href="/self-hosted/creators/grading-learnpack-tutorials" icon="check-double">
+      Incremental, isolated, and no-grading modes, plus test validation.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="Configure a package to ask for delivery" href="/self-hosted/creators/configure-a-learnpack-package-to-ask-for-delivery" icon="inbox-in">
+      Require URLs or flags for submissions with custom validation.
+    </Card>
+
+    <Card title="Publish a LearnPack package in the cloud" href="/self-hosted/creators/how-to-publish-a-learnpack-package-in-the-cloud" icon="cloud-arrow-up">
+      Ship via Gitpod or Codespaces with minimal setup.
+    </Card>
+  </div>
+
+</Columns>
+
+## See also
+
+* [Telemetry Configuration](/self-hosted/creators/telemetry-configuration)
+* [Keeping Quality in LearnPack Tutorials](/self-hosted/creators/keeping-quality-in-learnpack-tutorials)
+* [LearnPack controls (for students)](/self-hosted/students/learnpack-controls)
+

@@ -1,0 +1,215 @@
+---
+title: "Configure a LearnPack package to ask for delivery"
+description: "LearnPack allows configuring project delivery as no delivery, file uploads (via MIME types), or URL submissions (validated by regex). Examples include PDFs, Word files, GitHub links, or Google Docs URLs."
+---
+
+# Configure LearnPack for delivering the package as a project
+
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>Delivery options:</span></b> configure <b>no delivery</b>, <b>file uploads</b> (by MIME type), or <b>URL submissions</b> (via regex). You can also accept <b>flags</b> for CTF-style validations. ✅
+</Callout>
+
+One of LearnPack’s most popular features is the ability to ask students to deliver the package as homework. Here, you can configure a package to allow or not allow delivery.
+
+---
+
+## Projects with no delivery
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "formats": ["no_delivery"]
+  }
+}
+````
+
+---
+
+## Deliver a file
+
+Before setting up your `learn.json`, you must know which MIME types learners will be able to upload to deliver the project successfully. If you have a sample file, you can upload it to a MIME checker (e.g., mimetype.io) to retrieve the exact string.
+
+![how to get mime types](https://github.com/learnpack/docs/blob/main/assets/mime-type.png?raw=true)
+
+Once you get the MIME type, specify it under the `delivery.formats` array:
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "formats": ["application/pdf"]
+  }
+}
+```
+
+**Examples:**
+
+### PDF file
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "instructions": {
+      "us": "Please drag your finished resume as a PDF file and upload it here",
+      "es": "Porfavor adjunta tu resume/CV listo y como archivo PDF"
+    },
+    "formats": ["application/pdf"]
+  }
+}
+```
+
+### Flag coming from Capture the Flag
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "instructions": {
+      "us": "Paste the flag you found with format FLAG{hash}",
+      "es": "Agrega el la bandera que encontraste con el formato FLAG{hash}"
+    },
+    "formats": ["flags"],
+    "quantity": 2
+  }
+}
+```
+
+### Text file with multiple MIME possibilities
+
+Sometimes, we want to allow multiple file types. In this case, the learner can upload a file from MS Word or PDF.
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "instructions": {
+      "us": "Create a text document with the answers to the questions in the instructions",
+      "es": "Adjunta un documento con las respuestas a las preguntas"
+    },
+    "formats": ["application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf"]
+  }
+}
+```
+
+### Files with unknown MIME type
+
+Some rare files like Packet Tracer `.pka` do not have a recognized MIME type. In that case, use `application/octet-stream` followed by the file extension:
+
+<Callout type="tip">
+<b>Heads up:</b> this is a last resort. Prefer explicit MIME types whenever possible.
+</Callout>
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "instructions": {
+      "en": "Please attach your finished pka file and upload it here",
+      "es": "Por favor adjunta tu archivo pka listo y cárgalo aquí"
+    },
+    "formats": ["application/octet-stream,.pka"]
+  }
+}
+```
+
+---
+
+## Ask students to deliver a link
+
+The default format to deliver a project is by specifying a GitHub repository URL with the following structure:
+
+```text
+https://github.com/<github_username>/<github_repository>
+```
+
+You can override that behavior by specifying a `regex`:
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "formats": ["url"],
+    "regex": "https://github.com/"
+  }
+}
+```
+
+**More URL examples:**
+
+### URL from docs.google.com
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "instructions": {
+      "us": "Pase the URL of the Google Sheets template with the different strategies discussed during the game",
+      "es": "Agrega el URL al document de Google Sheets con las diferentes strategies discutidas"
+    },
+    "formats": ["url"],
+    "regex": "https://docs.google.com/"
+  }
+}
+```
+
+### URL from anywhere (generic)
+
+Leave the `regex` key with `https://` only. The system will ensure a valid URL is provided.
+
+```json filename="learn.json"
+{
+  "delivery": {
+    "instructions": {
+      "us": "Pase the URL of the Google Sheets template with the different strategies discussed during the game",
+      "es": "Agrega el URL al document de Google Sheets con las diferentes strategies discutidas"
+    },
+    "formats": ["url"],
+    "regex": "https://"
+  }
+}
+```
+
+---
+
+## Quick rubric
+
+| **Delivery type**   | **Key(s)**                                                                                                                | **Example**            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| No delivery         | `formats: ["no_delivery"]`                                                                                                | No submission required |
+| File upload         | `formats: ["application/pdf"]`                                                                                            | PDF resume             |
+| Multiple file types | `formats: ["application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf"]` | DOC, DOCX, or PDF      |
+| Unknown type        | `formats: ["application/octet-stream,.pka"]`                                                                              | Packet Tracer `.pka`   |
+| URL link            | `formats: ["url"]`, `regex: "https://github.com/"`                                                                        | GitHub repo            |
+| URL (generic)       | `formats: ["url"]`, `regex: "https://"`                                                                                   | Any https URL          |
+| Flags (CTF)         | `formats: ["flags"]`, `quantity`                                                                                          | One or more flags      |
+
+<Callout type="success">
+<b>Tip:</b> pair delivery settings with your <a href="/self-hosted/creators/grading-learnpack-tutorials"><b>grading mode</b></a> to align submissions with tests and review workflows.
+</Callout>
+
+---
+
+## Next up
+
+<Columns cols={2}>
+  <div>
+    <Card title="LearnPack Configuration" href="/self-hosted/creators/learnpack-configuration" icon="sliders">
+      Editor, grading, and delivery settings in <b>learn.json</b>.
+    </Card>
+
+    <Card title="Grading LearnPack Tutorials" href="/self-hosted/creators/grading-learnpack-tutorials" icon="check-double">
+      Incremental, isolated, and no-grading modes, plus test validation.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="Telemetry Configuration" href="/self-hosted/creators/telemetry-configuration" icon="chart-line">
+      Configure batch and stream endpoints for events.
+    </Card>
+
+    <Card title="Publish a LearnPack package in the cloud" href="/self-hosted/creators/how-to-publish-a-learnpack-package-in-the-cloud" icon="cloud-arrow-up">
+      Ship via Gitpod or Codespaces with minimal setup.
+    </Card>
+  </div>
+</Columns>
+
+
+## See also
+
+* [self-hosted/students/telemetry-in-learnpack](/self-hosted/students/telemetry-in-learnpack)
+* [self-hosted/creators/learnpack-quick-start](/self-hosted/creators/learnpack-quick-start)
+* [publishing-and-exports/exporting-to-scorm-and-embedding-in-lms](/publishing-and-exports/exporting-to-scorm-and-embedding-in-lms)

@@ -1,0 +1,89 @@
+---
+title: "Keeping Quality in LearnPack Tutorials"
+description: "Run learnpack audit to validate your tutorial before publishing. See the full list of error checks and warnings, plus the command to fix common issues."
+---
+
+# Keeping Quality in LearnPack Tutorials
+
+<Callout type="info">
+<b><span style={{ color:"#4F46E5" }}>Quality gate:</span></b> use <b>learnpack audit</b> to scan configuration, links, images, and exercise structure before you publish. 🧪
+</Callout>
+
+## Audit your tutorial
+
+With LearnPack you can audit your repository and check for possible errors.
+
+Run:
+
+```bash
+learnpack audit
+````
+
+## LearnPack audit errors
+
+The audit command currently validates:
+
+1. **Basic `learn.json`:** the configuration must include **`slug`**, **`repository`**, and **`description`**.
+2. **No user or session files in the repo:** when LearnPack runs it generates session files (telemetry, login, etc.). Remove them before publishing. You can fix this by running **`learnpack clean`**.
+3. **Empty or missing files:** every step must include at least one **README** file.
+4. **Broken links:** scans step instructions to ensure no links return **404**.
+5. **Valid image URLs (relative or absolute):** scans step instructions to ensure all images load correctly.
+6. **Exercise directory names:** folders must follow LearnPack’s convention, starting with a number and a descriptive name.
+7. **`exercises` array contains session content:** a `contig.json` file is generated during a session and should be emptied before publishing.
+
+## LearnPack audit warnings
+
+8. **Inconsistent translations.**
+9. **Missing `.gitignore`.**
+10. **Loose files:** files inside the `exercises` folder but not within any specific exercise directory.
+
+<Callout type="success">
+<b>Tip:</b> after fixes, run <b>learnpack audit</b> again until your repository is clean. For student-side data hygiene, remind learners to avoid committing files generated under <b>.learn/</b>.
+</Callout>
+
+## Next up
+
+<Columns cols={2}>
+  <div>
+    <Card
+      title="Grading LearnPack Tutorials"
+      href="/self-hosted/creators/grading-learnpack-tutorials"
+      icon="check-double"
+    >
+      Incremental, isolated, and no-grading modes, plus test validation.
+    </Card>
+
+    <Card
+      title="LearnPack Configuration"
+      href="/self-hosted/creators/learnpack-configuration"
+      icon="sliders"
+    >
+      Editor, grading, and delivery settings in <strong>learn.json</strong>.
+    </Card>
+  </div>
+
+  <div>
+    <Card
+      title="Telemetry Configuration"
+      href="/self-hosted/creators/telemetry-configuration"
+      icon="chart-line"
+    >
+      Configure batch and stream endpoints for events.
+    </Card>
+
+    <Card
+      title="Publish a LearnPack package in the cloud"
+      href="/self-hosted/creators/how-to-publish-a-learnpack-package-in-the-cloud"
+      icon="cloud-arrow-up"
+    >
+      Ship via Gitpod or Codespaces with minimal setup.
+    </Card>
+  </div>
+</Columns>
+
+
+## See also
+
+* [self-hosted/creators/learnpack-quick-start](/self-hosted/creators/learnpack-quick-start)
+* [self-hosted/students/learnpack-controls](/self-hosted/students/learnpack-controls)
+* [self-hosted/students/telemetry-in-learnpack](/self-hosted/students/telemetry-in-learnpack)

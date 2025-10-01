@@ -1,0 +1,92 @@
+---
+title: "Accessibility in LearnPack"
+description: "LearnPack aligns with WCAG: high contrast, readable fonts with alt text, and complete keyboard navigation for inclusive learning."
+---
+
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>Commitment to access:</span></b> LearnPack follows the Web Content Accessibility Guidelines (WCAG). High contrast, readable typography, descriptive alt text, and full keyboard support are core to the experience. ♿
+</Callout>
+
+# Accessibility in LearnPack
+
+When discussing accessibility, it is important to reference web standards such as the Web Content Accessibility Guidelines (WCAG), which provide good practices for making web content understandable for everyone, regardless of the user agent.
+
+LearnPack considers these guidelines and continuously strives to improve the user experience, making it easier to understand.
+
+## Colors and contrast
+
+The primary text color in LearnPack is black on a white background. This yields a contrast ratio of **21:1**, which meets **WCAG AA** and **WCAG AAA** for normal text.
+
+- Verify the contrast here: <a href="https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=000000" target="_blank" rel="noreferrer"><b>LearnPack contrast</b></a>.
+
+## Font sizes and readability
+
+![LearnPack screenshot](https://github.com/breatheco-de/content/assets/107764250/865b7145-9e64-4668-b202-e8e70c441326)
+
+LearnPack’s font sizes follow WCAG-recommended practices. Lesson content uses a minimum of **16 px**, then increases by **4 px** for `h3`, another **4 px** for `h2`, and **3 px** more for `h1`. Lesson content is written in Markdown and converted to HTML, so **images include alt text** by design.
+
+Additional practices for readability:
+
+- **No justification:** avoids irregular spacing.
+- **Avoid excessive uppercase:** reduces eye strain.
+- **Paragraph spacing:** ~**1.5×–2×** line height between paragraphs for comfortable scanning.
+
+## Keyboard navigation and key commands
+
+To make LearnPack easier to use without a mouse, key bindings enable complete keyboard control:
+
+- `Arrow Up` / `Arrow Down`: scroll the page.
+- `Ctrl` + `Enter`: execute the code you wrote.
+- `Ctrl` + `Shift` + `Enter`: run the exercise’s tests and view results.
+- `Ctrl` + `Right Arrow`: go to the next exercise.
+- `Ctrl` + `Left Arrow`: return to the previous exercise.
+- `Ctrl` + `Alt` + `Enter`: toggle the AI tutor if you are logged in.
+
+<Callout type="tip">
+<b>Tip:</b> Use keyboard shortcuts together with clear headings and alt text to move quickly, test often, and keep your hands on the keyboard. ⚡
+</Callout>
+
+## Accessibility at a glance
+
+| Area | What LearnPack provides | Why it helps |
+|---|---|---|
+| **Contrast** | Black on white, **21:1** ratio | Meets WCAG AA and AAA for normal text |
+| **Typography** | Base **16 px** body, larger headings | Readable hierarchy for long-form lessons |
+| **Images** | Markdown-to-HTML with **alt text** | Non-text content is understandable |
+| **Keyboard** | Shortcuts for run, test, navigate, tutor | Full control without a mouse |
+
+<Callout type="success">
+<b>Outcome:</b> consistent readability, inclusive navigation, and accessible media make learning smoother for everyone.
+</Callout>
+
+## Next up
+
+<Columns cols={2}>
+
+  <div>
+    <Card title="Quickstart for learners" href="/self-hosted/students/quickstart-for-learners" icon="rocket">
+      Open tutorials in the cloud or locally.
+    </Card>
+
+    <Card title="LearnPack controls" href="/self-hosted/students/learnpack-controls" icon="sliders">
+      Navigation, run, and reset while you learn.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="Feedback in LearnPack" href="/self-hosted/students/feedback-in-learnpack" icon="comment">
+      Tests, AI mentoring, and solution videos.
+    </Card>
+
+    <Card title="Telemetry in LearnPack" href="/self-hosted/students/telemetry-in-learnpack" icon="chart-line">
+      What data is collected, and why it matters.
+    </Card>
+  </div>
+
+</Columns>
+
+## See also
+
+- [How LearnPack’s AI mentor works](/rigobot/how-learnpacks-ai-mentor-tutor-works)  
+- [Create your first course](/getting-started/create-your-first-course-in-5-minutes)  
+- [Best practices for course design](/creating-courses/best-practices-for-course-design)

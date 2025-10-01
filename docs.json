@@ -118,33 +118,61 @@
         ]
       },
       {
-        "tab": "Try it Now",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          }
-        ]
-      }
+      "tab": "Self-Hosted",
+      "groups": [
+        {
+          "group": "For Students",
+          "pages": [
+            "self-hosted-students/quickstart-for-learners",
+            "self-hosted-students/feedback-in-learnpack",
+            "self-hosted-students/learnpack-controls",
+            "self-hosted-students/accessibility-in-learnpack",
+            "self-hosted-students/telemetry-in-learnpack",
+            "self-hosted-students/agent-and-mode-in-learnpack"
+          ]
+        },
+        {
+          "group": "For Creators",
+          "pages": [
+            "self-hosted-creators/learnpack-quick-start",
+            "self-hosted-creators/grading-learnpack-tutorials",
+            "self-hosted-creators/learnpack-configuration",
+            "self-hosted-creators/telemetry-configuration",
+            "self-hosted-creators/configure-a-learnpack-package-to-ask-for-delivery",
+            "self-hosted-creators/keeping-quality-in-learnpack-tutorials",
+            "self-hosted-creators/how-to-successfully-create-quizzes-for-learnpack",
+            "self-hosted-creators/how-to-publish-a-learnpack-package-in-the-cloud"
+          ]
+        }
+      ]
+    }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
+          "anchor": "Docs",
           "href": "https://mintlify.com/docs",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Community",
+          "anchor": "Individual Use",
           "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "icon": "user"
         },
         {
-          "anchor": "Blog",
+          "anchor": "Teams & enterprises",
+          "href": "https://mintlify.com/blog",
+          "icon": "users"
+        },
+        {
+          "anchor": "Changelog",
           "href": "https://mintlify.com/blog",
           "icon": "newspaper"
+       },
+       {
+          "anchor": "Pricing",
+          "href": "https://mintlify.com/blog",
+          "icon": "credit-card"
         }
       ]
     }
@@ -163,7 +191,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://www.learnpack.co/"
     }
   },
   "contextual": {
@@ -180,9 +208,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/LearnPack",
+      "github": "https://github.com/learnpack",
+      "linkedin": "https://linkedin.com/company/learnpack"
     }
   }
 }

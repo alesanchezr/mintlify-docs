@@ -1,0 +1,149 @@
+---
+title: "Telemetry configuration in LearnPack"
+description: "Improve your LearnPack configuration with telemetry to unlock key insights and optimize your course management."
+---
+
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>What telemetry does:</span></b> stores usage locally in <b>telemetry.json</b>, and can optionally <b>batch</b> or <b>stream</b> events to your server. ✅
+</Callout>
+
+Discover how telemetry helps you understand interactions and performance. It is not only about collecting data, it is about unlocking insights that improve the learning journey. Below you will find how to configure the path for <b>telemetry.json</b> and how to transmit events as they occur.
+
+## Configure in <code>learn.json</code> ⚙️
+
+Each LearnPack course includes a <b>learn.json</b> file for exercise testing, compiler selection, and more. The <b>telemetry</b> key lets you streamline data tracking.
+
+![Telemetry Key Example](https://github.com/breatheco-de/content/assets/107764250/70caf7ad-89df-4ead-9404-d7778cd6dd15)
+
+When registered users interact with a course, LearnPack can record and transmit events for key actions:
+
+| UI action | Event name |
+|---|---|
+| Press the **Next** button | <code>open_step</code> |
+| Click **Run** | <code>compile</code> |
+| Click **Run tests** | <code>test</code> |
+| Ask the **AI tutor** | <code>ai_interaction</code> |
+
+## How often telemetry is sent ⏱️
+
+<Steps>
+  <Step title="Batch">
+    After executing <b>learnpack start</b>, telemetry is sent for the first time if it is configured.  
+    When opening a new step, the next step is marked as started and the current copy of telemetry is sent to the configured <b>batch</b> URL.
+  </Step>
+  <Step title="Stream">
+    For each new event, if the <b>stream</b> URL is configured, LearnPack sends a webhook with the event to the specified endpoint.
+  </Step>
+</Steps>
+
+<Callout type="tip">
+<b>Reminder:</b> configure both <b>batch</b> and <b>stream</b> URLs to ensure events are received as expected. Endpoints must accept <b>POST</b> requests.
+</Callout>
+
+## What telemetry stores
+
+Telemetry includes information about opened exercises and timestamps, compilation and test results, work sessions, the first start time, the environment where it runs, and identifiers for telemetry and the student if it is a 4Geeks student.
+
+```json
+{
+  "telemetry_id": "atlbmot8wvalltng",
+  "slug": "prompt-engineering-for-beginners",
+  "agent": "vscode",
+  "tutorial_started_at": 1718211567826,
+  "steps": [
+    {
+      "slug": "00-welcome",
+      "position": 0,
+      "files": [
+        { "path": "exercises\\00-welcome/README.es.md", "name": "README.es.md", "hidden": true },
+        { "path": "exercises\\00-welcome/README.md", "name": "README.md", "hidden": true },
+        { "path": "exercises\\00-welcome/__pycache__", "name": "__pycache__", "hidden": true }
+      ],
+      "ai_interactions": [],
+      "compilations": [],
+      "tests": [],
+      "is_testeable": false
+    },
+    {
+      "slug": "01.1-obtain-api-key",
+      "position": 3,
+      "files": [
+        { "path": "exercises\\01.1-obtain-api-key/app.py", "name": "app.py", "hidden": false },
+        { "path": "exercises\\01.1-obtain-api-key/README.es.md", "name": "README.es.md", "hidden": true },
+        { "path": "exercises\\01.1-obtain-api-key/README.md", "name": "README.md", "hidden": true },
+        { "path": "exercises\\01.1-obtain-api-key/test.py", "name": "test.py", "hidden": true },
+        { "path": "exercises\\01.1-obtain-api-key/__pycache__", "name": "__pycache__", "hidden": true }
+      ],
+      "ai_interactions": [],
+      "compilations": [
+        {
+          "stderr": "DQpbbm90aWNlXSBBIG5ldyByZWxlYXNlIG9mIHBpcCBhdmFpbGFibGU6IDIyLjMuMSAtPiAyNC4wDQpbbm90aWNlXSBUbyB1cGRhdGUsIHJ1bjogcHl0aG9uLmV4ZSAtbSBwaXAgaW5zdGFsbCAtLXVwZ3JhZGUgcGlwDQo=",
+          "stdout": "RW50ZXIgeW91ciBBUEkga2V5OiBSZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogcHl0aG9uLWRvdGVudiBpbiBjOlx1c2Vyc1xsZWdpb25cYXBwZGF0YVxsb2NhbFxwcm9ncmFtc1xweXRob25ccHl0aG9uMzExXGxpYlxzaXRlLXBhY2thZ2VzIChmcm9tIC1yIHJlcXVpcmVtZW50cy50eHQgKGxpbmUgMSkpICgxLjAuMSkNClJlcXVpcmVtZW50IGFscmVhZHkgc2F0aXNmaWVkOiBncm9xIGluIGM6XHVzZXJzXGxlZ2lvblxhcHBkYXRhXGxvY2FsXHByb2dyYW1zXHB5dGhvblxweXRob24zMTFcbGliXHNpdGUtcGFja2FnZXMgKGZyb20gLXIgcmVxdWlyZW1lbnRzLnR4dCAobGluZSAyKSkgKDAuOC4wKQ0KUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IGFueWlvPDUsPj0zLjUuMCBpbiBjOlx1c2Vyc1xsZWdpb25cYXBwZGF0YVxsb2NhbFxwcm9ncmFtc1xweXRob25ccHl0aG9uMzExXGxpYlxzaXRlLXBhY2thZ2VzIChmcm9tIGdyb3EtPi1yIHJlcXVpcmVtZW50cy50eHQgKGxpbmUgMikpICg0LjQuMCkNClJlcXVpcmVtZW50IGFscmVhZHkgc2F0aXNmaWVkOiBkaXN0cm88Miw+PTEuNy4wIGluIGM6XHVzZXJzXGxlZ2lvblxhcHBkYXRhXGxvY2FsXHByb2dyYW1zXHB5dGhvblxweXRob24zMTFcbGliXHNpdGUtcGFja2FnZXMgKGZyb20gZ3JvcS0+LXIgcmVxdWlyZW1lbnRzLnR4dCAobGluZSAyKSkgKDEuOS4wKQ0KUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IGh0dHB4PDEsPj0wLjIzLjAgaW4gYzpcdXNlcnNcbGVnaW9uXGFwcGRhdGFcbG9jYWxccHJvZ3JhbXNccHl0aG9uXHB5dGhvbjMxMVxsaWJcc2l0ZS1wYWNrYWdlcyAoZnJvbSBncm9xLT4tciByZXF1aXJlbWVudHMudHh0IChsaW5lIDIpKSAoMC4yNy4wKQ0KUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IHB5ZGFudGljPDMsPj0xLjkuMCBpbiBjOlx1c2Vyc1xsZWdpb25cYXBwZGF0YVxsb2NhbFxwcm9ncmFtc1xweXRob25ccHl0aG9uMzExXGxpYlxzaXRlLXBhY2thZ2VzIA==",
+          "signal": "SIGTERM",
+          "memoryUsage": 532480,
+          "cpuUsage": 0,
+          "errorType": "run-time",
+          "starting_at": 1718211884140,
+          "source_code": "aW1wb3J0IG9zDQojIERPIE5PVCBDSEFOR0UgVEhJUyBDT0RFDQoNCg0KQVBJX0tFWSA9IGlucHV0KCJFbnRlciB5b3VyIEFQSSBrZXk6ICIpDQoNCiMgU2F2ZSB0aGUgQVBJX0tFWSBpbiB0aGUgZG90ZW52IGZpbGUNCndpdGggb3BlbigiLmVudiIsICJ3IikgYXMgZjoNCiAgICBmLndyaXRlKGYiR1JPUV9BUElfS0VZPXtBUElfS0VZfVxuIikNCg0KIyBFeHBvcnQgdGhlIEFQSV9LRVkgYXMgYW4gZW52aXJvbm1lbnQgdmFyaWFibGUNCm9zLmVudmlyb25bIkdST1FfQVBJX0tFWSJdID0gQVBJX0tFWQ0KDQojIEluc3RhbGwgdGhlIGRlcGVuZGVuY2llcyBpbiB0aGUgcmVxdWlyZW1lbnRzLnR4dCBmaWxlDQpwcmludCgiSW5zdGFsbGluZyBkZXBlbmRlbmNpZXMuLi4iKQ0Kb3Muc3lzdGVtKCJwaXAgaW5zdGFsbCAtciByZXF1aXJlbWVudHMudHh0IikNCg==",
+          "ended_at": 1718211886645,
+          "exit_code": null
+        }
+      ],
+      "tests": [
+        {
+          "starting_at": 1718211893013,
+          "source_code": "aW1wb3J0IG9zDQojIERPIE5PVCBDSEFOR0UgVEhJUyBDT0RFDQoNCg0KQVBJX0tFWSA9IGlucHV0KCJFbnRlciB5b3VyIEFQSSBrZXk6ICIpDQoNCiMgU2F2ZSB0aGUgQVBJX0tFWSBpbiB0aGUgZG90ZW52IGZpbGUNCndpdGggb3BlbigiLmVudiIsICJ3IikgYXMgZjoNCiAgICBmLndyaXRlKGYiR1JPUV9BUElfS0VZPXtBUElfS0VZfVxuIikNCg0KIyBFeHBvcnQgdGhlIEFQSV9LRVkgYXMgYW4gZW52aXJvbm1lbnQgdmFyaWFibGUNCm9zLmVudmlyb25bIkdST1FfQVBJX0tFWSJdID0gQVBJX0tFWQ0KDQojIEluc3RhbGwgdGhlIGRlcGVuZGVuY2llcyBpbiB0aGUgcmVxdWlyZW1lbnRzLnR4dCBmaWxlDQpwcmludCgiSW5zdGFsbGluZyBkZXBlbmRlbmNpZXMuLi4iKQ0Kb3Muc3lzdGVtKCJwaXAgaW5zdGFsbCAtciByZXF1aXJlbWVudHMudHh0IikNCg==",
+          "ended_at": 1718211893606,
+          "stdout": "G1sxbT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IHRlc3Qgc2Vzc2lvbiBzdGFydHMgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT0bWzBtDQpwbGF0Zm9ybSB3aW4zMiAtLSBQeXRob24gMy4xMS4zLCBweXRlc3QtOC4yLjIsIHBsdWdneS0xLjUuMA0Kcm9vdGRpcjogQzpcVXNlcnNcTEVHSU9OXFByb2plY3RzXGpvYnNcNGdlZWtzXHR1dG9yaWFsc1xwcm9tcHQtZW5nDQpwbHVnaW5zOiBhbnlpby00LjQuMCwgdGVzdGRveC0zLjEuMA0KY29sbGVjdGVkIDEgaXRlbQ0KDQpleGVyY2lzZXNcMDEuMS1vYnRhaW4tYXBpLWtleVx0ZXN0LnB5IBtbMzJtLhtbMG0bWzMybSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBbMTAwJV0bWzBtDQoNChtbMzJtPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IBtbMzJtG1sxbTEgcGFzc2VkG1swbRtbMzJtIGluIDAuMDNzG1swbRtbMzJtID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PRtbMG0NCg==",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ],
+      "is_testeable": true,
+      "opened_at": 1718211866688,
+      "completed_at": 1718211893606
+    }
+    // ...rest of the file continues
+  ],
+  "workout_session": [
+    { "started_at": 1718211567826, "ended_at": 1718211913735 },
+    { "started_at": 1718211952333 }
+  ],
+  "last_interaction_at": 1718211913735
+}
+````
+
+<Callout type="success">
+<b>Privacy:</b> only non-sensitive usage data is collected to enhance performance and user experience.
+</Callout>
+
+## Next up
+
+<Columns cols={2}>
+  <div>
+    <Card title="LearnPack Configuration" href="/self-hosted/creators/learnpack-configuration" icon="sliders">
+      Editor, grading, and delivery settings in <b>learn.json</b>.
+    </Card>
+
+    <Card title="Telemetry in LearnPack (for learners)" href="/self-hosted/students/telemetry-in-learnpack" icon="chart-line">
+      What telemetry captures while learning.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="Publish a LearnPack package in the cloud" href="/self-hosted/creators/how-to-publish-a-learnpack-package-in-the-cloud" icon="cloud-arrow-up">
+      Ship via Gitpod or Codespaces with minimal setup.
+    </Card>
+
+    <Card title="Grading LearnPack Tutorials" href="/self-hosted/creators/grading-learnpack-tutorials" icon="check-double">
+      Incremental, isolated, and no-grading modes.
+    </Card>
+  </div>
+</Columns>
+
+
+## See also
+
+* [publishing-and-exports/exporting-to-scorm-and-embedding-in-lms](/publishing-and-exports/exporting-to-scorm-and-embedding-in-lms)
+* [getting-started/create-your-first-course-in-5-minutes](/getting-started/create-your-first-course-in-5-minutes)
+

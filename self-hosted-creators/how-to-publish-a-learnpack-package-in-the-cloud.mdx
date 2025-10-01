@@ -1,0 +1,173 @@
+# Create Quizzes in LearnPack
+
+Quizzes help learners check understanding, think critically, and stay engaged. In LearnPack, quizzes are written in **plain Markdown**, then rendered as interactive content using simple formatting rules.
+
+<Callout type="info">
+  <span style={{color:'#4F46E5'}}><strong>Works with plain Markdown:</strong></span> write questions and options using standard Markdown checkboxes, LearnPack handles the rest.
+</Callout>
+
+## Key rules
+
+### Structure of a quiz
+
+* **Question title:** the question text itself.
+* **Blank line:** leave one empty line after the title.
+* **Options:** use a checklist
+
+  * Incorrect: `- [ ]`
+  * Correct: `- [x]`
+
+### One correct answer
+
+* Each question must have **only one** correct option.
+
+### Proper indentation
+
+* Indent options by **3–6 spaces** beneath the question title.
+* Incorrect indentation causes parsing to fail.
+
+### Blank line between title and options
+
+* Always include a **blank line** between the question title and its options.
+
+<Callout type="tip">
+  <span style={{color:'#4F46E5'}}><strong>Tip:</strong></span> In editors like VS Code, use <kbd>Tab</kbd> to keep consistent indentation.
+</Callout>
+
+## Formatting examples
+
+### Numbered questions
+
+```md
+1. What is the capital of France?
+
+   - [ ] Berlin
+   - [ ] Madrid
+   - [x] Paris
+
+2. Which planet is known as the Red Planet?
+
+   - [ ] Earth
+   - [x] Mars
+   - [ ] Jupiter
+```
+
+### Bulleted questions
+
+```md
+- What is 2 + 2?
+
+  - [ ] 3
+  - [x] 4
+  - [ ] 5
+
+- What is the boiling point of water?
+
+  - [x] 100°C
+  - [ ] 50°C
+  - [ ] 150°C
+```
+
+## Quick rubric
+
+| Check            | What to verify                              |
+| ---------------- | ------------------------------------------- |
+| **Outcome:**     | One correct answer per question             |
+| **Indentation:** | Options indented **3–6 spaces**             |
+| **Spacing:**     | **Blank line** between title and options    |
+| **Syntax:**      | Use Markdown checkboxes `- [ ]` and `- [x]` |
+
+## Multiple quizzes in one lesson
+
+You can include several quizzes in the same Markdown file. Separate them with headings or text blocks.
+
+```md
+Welcome to the HTML Basics lesson! In this lesson, we will explore the fundamentals of HTML.
+
+### Quiz 1: HTML Basics
+
+1. What is HTML used for?
+
+   - [x] Creating websites
+   - [ ] Writing code
+   - [ ] Designing animations
+
+2. What does HTML stand for?
+
+   - [ ] Hyper Trainer Markup Language
+   - [x] Hyper Text Markup Language
+   - [ ] Home Tool Markup Language
+
+---
+
+### Quiz 2: CSS Basics
+
+1. What is CSS used for?
+
+   - [ ] Developing databases
+   - [x] Styling websites
+   - [ ] Writing server-side code
+
+2. Which property is used to change text color in CSS?
+
+   - [ ] font-color
+   - [x] color
+   - [ ] text-color
+```
+
+## Pro tips
+
+* **Use a Markdown editor:** Tools like VS Code or Obsidian make indentation easier. In VS Code, `Shift + Alt + F` can auto-format.
+* **Test before publishing:** Preview the Markdown to confirm structure and the correct answer.
+* **Keep questions clear:** Write concise, relevant prompts.
+
+---
+
+Quizzes reinforce learning when crafted with clear structure and consistent formatting. Happy teaching! 🎉
+
+## Next up
+
+<Columns cols={2}>
+  <div>
+    <Card
+      title="Add Quizzes, Projects, and Open-Ended Tasks"
+      href="/creating-courses/adding-quizzes-projects-and-open-ended-tasks"
+      icon="square-check"
+    >
+      Expand beyond multiple choice, add projects and open-ended work.
+    </Card>
+
+```
+<Card
+  title="Best Practices for Course Design"
+  href="/creating-courses/best-practices-for-course-design"
+  icon="lightbulb"
+>
+  Make interactive courses clear, consistent, and effective.
+</Card>
+```
+
+  </div>
+
+  <div>
+    <Card
+      title="Adding Diagrams to Your LearnPack Course"
+      href="/creating-courses/adding-diagrams-to-your-learnpack-course"
+      icon="diagram-project"
+    >
+      Use visuals to support complex topics.
+    </Card>
+
+```
+<Card
+  title="Adding Images to Your Courses and Packages"
+  href="/creating-courses/adding-images-to-your-courses-and-packages"
+  icon="image"
+>
+  Include screenshots and figures for better comprehension.
+</Card>
+```
+
+  </div>
+</Columns>
+

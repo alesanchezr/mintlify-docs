@@ -1,0 +1,106 @@
+---
+title: "Create your first LearnPack tutorial"
+description: "Install LearnPack globally, initialize a new tutorial, choose a grading mode, and structure your exercises. Copy-paste friendly commands included."
+---
+
+# Getting started with LearnPack as a creator
+
+There are two ways to use LearnPack: as a **creator** of interactive tutorials, or as a **learner** consuming those tutorials. This guide focuses on the creator path.
+
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>Prerequisites:</span></b> Make sure you have Node.js installed, then install the LearnPack CLI. Find the package on npm: <a href="https://www.npmjs.com/package/@learnpack/learnpack" target="_blank" rel="noreferrer"><b>@learnpack/learnpack</b></a>.
+</Callout>
+
+## Start your first tutorial
+
+Follow these steps to create a tutorial project.
+
+<Steps>
+  <Step title="Install the CLI globally">
+    Run:
+    <br />
+    <code>npm install -g @learnpack/learnpack</code>
+  </Step>
+
+  <Step title="Initialize the project">
+    In an empty folder, run:
+    <br />
+    <code>learnpack init</code>
+    <br />
+    The wizard will ask about your tutorial’s configuration and then scaffold the project.
+  </Step>
+
+  <Step title="Answer the setup questions">
+    You will be prompted for:
+    <ul>
+      <li><b>Grading type</b> (see options below)</li>
+      <li><b>Title</b> of the tutorial</li>
+      <li><b>Description</b></li>
+      <li><b>Difficulty</b> (Beginner, Easy, Intermediate, Hard)</li>
+      <li><b>Estimated duration</b> (hours)</li>
+    </ul>
+  </Step>
+</Steps>
+
+### Grading types at a glance
+
+| Option | What it means | When to use |
+|---|---|---|
+| **Incremental** | You cannot move forward until the current exercise passes its tests. Later steps depend on earlier knowledge. | Progressive skill-building paths. |
+| **Isolated** | Each exercise is independent. You can jump to any step in any order. | Drill practice or non-linear study. |
+| **No grading** | No tests for exercises. | Reading tasks, demos, or exploratory content. |
+
+![Grading selector](https://raw.githubusercontent.com/learnpack/docs/main/assets/spaces_db2MUqxH83ZwH273KWpu_uploads_fAt71PHHbRLI1eiXNurN_Untitled%20(1).webp)
+
+<Callout type="tip">
+<b>Tip:</b> Not sure about duration yet? Keep the default and adjust later while you iterate content.
+</Callout>
+
+## Project structure
+
+After the wizard finishes, your tutorial files are created in a new directory:
+
+![Directory files](https://github.com/learnpack/docs/blob/main/assets/initial-files.png)
+
+Each exercise you add should follow the same basic structure:
+
+- **README.md:** the learner-facing instructions.
+- **Test file:** used if the tutorial is graded.
+- **Entry file (e.g., <code>app.py</code> / <code>app.js</code>):** the code the learner edits.  
+  The default filename can be overridden in configuration.
+
+Add one folder per exercise and keep the structure consistent.
+
+## What to do next
+
+Once your project is scaffolded, start adding exercises and tests, then run LearnPack locally to preview the flow.
+
+<Columns cols={2}>
+
+  <div>
+    <Card title="Grading LearnPack tutorials" href="/self-hosted/creators/grading-learnpack-tutorials" icon="check">
+      Choose the right evaluation model for your content.
+    </Card>
+
+    <Card title="LearnPack configuration" href="/self-hosted/creators/learnpack-configuration" icon="gear">
+      Tweak editor agent, entry files, and options.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="How to publish a LearnPack package in the cloud" href="/self-hosted/creators/how-to-publish-a-learnpack-package-in-the-cloud" icon="cloud-arrow-up">
+      Get your tutorial online for learners.
+    </Card>
+
+    <Card title="How to successfully create quizzes for LearnPack" href="/self-hosted/creators/how-to-successfully-create-quizzes-for-learnpack" icon="square-check">
+      Build effective checks for understanding.
+    </Card>
+  </div>
+
+</Columns>
+
+## See also
+
+- [LearnPack quick start (creators)](/self-hosted/creators/learnpack-quick-start)  
+- [Keeping quality in LearnPack tutorials](/self-hosted/creators/keeping-quality-in-learnpack-tutorials)  
+- [Telemetry configuration](/self-hosted/creators/telemetry-configuration)

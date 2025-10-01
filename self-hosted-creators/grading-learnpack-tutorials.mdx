@@ -1,0 +1,77 @@
+Auto-graded exercises are a core LearnPack feature. They give learners **instant feedback** as they progress. Write tests with **Jest** (HTML, CSS, React, JavaScript, DOM) or **pytest** (Python).
+
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>What this covers:</span></b> grading modes available in LearnPack, and how to validate unit tests with the CLI. ✅
+</Callout>
+
+## Grading modes
+
+LearnPack supports three grading modes. Pick the one that matches your flow.
+
+| Mode            | What it does                                                                                                  | When to use                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Incremental** | You cannot move forward until the current exercise passes its tests. Later steps depend on earlier knowledge. | Linear tutorials where each concept builds on the previous one. |
+| **Isolated**    | Each exercise is independent, open any step in any order.                                                     | Drill practice, reference packs, non-linear paths.              |
+| **No grading**  | Exercises have no tests.                                                                                      | Reading tasks, demos, exploratory content.                      |
+
+![incremental-example](/images/tutorial.png)
+
+<Callout type="tip">
+<b>Tip:</b> Start with <b>Incremental</b> for structured courses, and use <b>Isolated</b> for optional practice modules.
+</Callout>
+
+## Test frameworks
+
+| Language or content               | Recommended framework |
+| --------------------------------- | --------------------- |
+| HTML, CSS, React, JavaScript, DOM | **Jest**              |
+| Python                            | **pytest**            |
+
+Keep assertions clear and deterministic so feedback stays fast and readable.
+
+## Validate your unit tests
+
+Use the CLI to audit each exercise’s tests. Ensure each exercise includes a hidden solution file so the command can assert against it.
+
+```bash
+learnpack test
+```
+
+**How it works:** when a `solution.hide` file exists in an exercise, `learnpack test` runs the test suite against that solution to confirm your checks are correct and aligned with the expected outcome.
+
+<Callout type="success">
+<b>Outcome:</b> reliable auto-grading, consistent feedback, and fewer false negatives during learner submissions.
+</Callout>
+
+## Next up
+
+<Columns cols={2}>
+
+  <div>
+    <Card title="Add quizzes, projects, and tasks" href="/creating-courses/adding-quizzes-projects-and-open-ended-tasks" icon="sparkles">
+      Build checks for understanding directly in your course.
+    </Card>
+
+    <Card title="Best practices for course design" href="/creating-courses/best-practices-for-course-design" icon="trophy">
+      Structure content for clarity and progress.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="How Rigobot works" href="/rigobot/how-rigobot-works" icon="robot">
+      Context-aware tutoring that supports graded flows.
+    </Card>
+
+    <Card title="How to publish a LearnPack package" href="/publishing-and-exports/how-to-publish-a-learnpack-package" icon="box-open">
+      Share a link, export SCORM, or embed in your LMS.
+    </Card>
+  </div>
+
+</Columns>
+
+
+## See also
+
+* [Adding diagrams to your LearnPack course](/creating-courses/adding-diagrams-to-your-learnpack-course)
+* [Adding images to your courses and packages](/creating-courses/adding-images-to-your-courses-and-packages)
+* [Exporting to SCORM and embedding in LMS](/publishing-and-exports/exporting-to-scorm-and-embedding-in-lms)

@@ -1,0 +1,142 @@
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>Two ways to begin:</span></b> run in the cloud with <b>GitHub Codespaces</b> or <b>Gitpod</b>, or run <b>locally</b> with Node and the LearnPack CLI. Pick what fits your setup today.
+</Callout>
+
+# Start learning with LearnPack
+
+The following explains how to open LearnPack tutorials locally or in the cloud, using your existing GitHub repositories.
+
+## Pick your first tutorial
+
+You can learn many things with LearnPack. What do you want to learn? Our most popular tutorials help you learn <a href="https://4geeks.com/interactive-exercise/javascript-array-loops-exercises" target="_blank" rel="noreferrer">javascript arrays</a>, <a href="https://4geeks.com/interactive-exercise/react-js-tutorial-exercises" target="_blank" rel="noreferrer">react js</a>, and how to <a href="https://4geeks.com/interactive-coding-tutorial/python-flask-api-tutorial" target="_blank" rel="noreferrer">build APIs with Python Flask</a>.
+
+> 🛟 Here is a <a href="https://4geeks.com/lesson/learnpack-tutorial-database" target="_blank" rel="noreferrer">curated list of our recommended tutorials</a>.
+
+Each tutorial is a separate GitHub repository. Open the repository and read the README to understand the scope. You may find an `exercises` folder or a `.learn/exercises` path with all the steps and instructions you will follow. We also have <a href="https://4geeks.com/interactive-coding-tutorials" target="_blank" rel="noreferrer">this curated list of tutorials from 4Geeks Academy</a> with a UI that makes selection easier.
+
+## Run the tutorial
+
+The easiest way to start a LearnPack tutorial is our click-and-learn bridge:
+
+- 🔗 <a href="https://s.4geeks.com/start" target="_blank" rel="noreferrer">https://s.4geeks.com/start</a>
+
+If you would rather do it yourself, use the guides below.
+
+## Open any LearnPack tutorial in the cloud
+
+> 🛟 Skip this section if you want to run locally on your computer.
+
+We will use the <a href="https://github.com/4GeeksAcademy/javascript-arrays-exercises-tutorial" target="_blank" rel="noreferrer">Looping with Javascript</a> tutorial as an example.
+
+### Opening on GitHub Codespaces
+
+1. Open the repository, click **Code**, then **Create codespace on master**.  
+   ![Create Codespace](https://github.com/learnpack/docs/assets/107764250/982084dd-0053-4ab0-b6b8-d3b2c2037fc5)
+2. Wait for the codespace to load.  
+3. Start reading the instructions and complete the exercises.  
+   ![Codespace loaded](https://github.com/learnpack/docs/assets/107764250/d58a3831-b18a-4799-88be-75e9ed293254)
+
+### Opening on Gitpod
+
+1. Type this URL in your browser:
+
+```txt
+https://gitpod.io/#<tutorial repository url>
+````
+
+Replace `<tutorial repository url>` with the tutorial’s GitHub URL, for example:
+
+```txt
+https://gitpod.io/#https://github.com/4GeeksAcademy/javascript-arrays-exercises-tutorial
+```
+
+> 🛟 You can also use the <a href="https://www.gitpod.io/docs/configure/user-settings/browser-extension" target="_blank" rel="noreferrer">Gitpod browser extension</a> to add a one-click button on GitHub.
+
+## Download and run a tutorial on your computer
+
+To use LearnPack locally, install **Node v20 or newer**. Some tutorials may require additional tools.
+
+> 🛟 We recommend installing Node via NVM. Guide: <a href="https://4geeks.com/how-to/install-nvm-on-every-operating-system" target="_blank" rel="noreferrer">install NVM on your OS</a>.
+
+**1) Install LearnPack globally**
+
+```bash
+npm i -g @learnpack/learnpack
+```
+
+**2) Clone a tutorial repository**
+
+Example with the JavaScript tutorial:
+
+```bash
+git clone https://github.com/4GeeksAcademy/javascript-arrays-exercises-tutorial.git
+```
+
+**3) Enter the directory**
+
+```bash
+cd javascript-arrays-exercises-tutorial
+```
+
+**4) Start LearnPack**
+
+```bash
+learnpack start
+```
+
+If LearnPack detects missing plugins for the tutorial, it will install them. Then run `learnpack start` again.
+![Needed plugins](https://github.com/learnpack/docs/assets/107764250/952ba5f4-5a7f-424e-8dfc-856f17f7a4b5)
+
+### Use LearnPack locally with VS Code
+
+If you use VS Code, install the extension: <a href="https://marketplace.visualstudio.com/items?itemName=learn-pack.learnpack-vscode" target="_blank" rel="noreferrer">LearnPack for VS Code</a>.
+
+Once inside a LearnPack tutorial, the extension will run **learnpack start** for you on first launch.
+
+## Choose the best mode
+
+| Option                 | Requirements                           | Best for                               |
+| ---------------------- | -------------------------------------- | -------------------------------------- |
+| **GitHub Codespaces**  | GitHub account with Codespaces enabled | Zero setup, fastest start              |
+| **Gitpod**             | Gitpod account                         | Cloud dev with easy launch from GitHub |
+| **Local with CLI**     | Node v20+, Git, terminal               | Full control, offline work             |
+| **Local with VS Code** | VS Code + LearnPack extension          | GUI comfort plus local speed           |
+
+<Callout type="success">
+<b>Tip:</b> Start in the cloud to try a tutorial, then move local for longer sessions or offline work. You can switch at any time.
+</Callout>
+
+## Next up
+
+<Columns cols={2}>
+
+  <div>
+    <Card title="LearnPack controls" href="/self-hosted/students/learnpack-controls" icon="sliders">
+      Navigation, run, and reset options while you learn.
+    </Card>
+
+    <Card title="Feedback in LearnPack" href="/self-hosted/students/feedback-in-learnpack" icon="comment">
+      How to report issues and request clarifications.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="Accessibility" href="/self-hosted/students/accessibility-in-learnpack" icon="universal-access">
+      Shortcuts, fonts, and readability options.
+    </Card>
+
+    <Card title="Telemetry" href="/self-hosted/students/telemetry-in-learnpack" icon="chart-line">
+      What data is collected, and how it helps improve learning.
+    </Card>
+  </div>
+
+</Columns>
+
+
+## See also
+
+* [Create your first course in 5 minutes](/getting-started/create-your-first-course-in-5-minutes)
+* [How Rigobot works](/rigobot/how-rigobot-works)
+* [Convert a PDF into an interactive course](/creating-courses/converting-a-pdf-into-an-interactive-course)
+
+

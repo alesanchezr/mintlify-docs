@@ -1,0 +1,99 @@
+---
+title: "Agent and mode in LearnPack"
+description: "Configure LearnPack to run as a VS Code extension or in the browser. Understand agent detection, warnings, and how to start each mode."
+---
+
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>Quick context:</span></b> LearnPack can open as a <b>VS Code extension</b> (<code>agent: "vscode"</code>) or in the <b>browser</b> (<code>agent: "os"</code>). It auto-detects the environment, and you can also set it in <code>learn.json</code>. 🙂
+</Callout>
+
+# Agent and mode in LearnPack
+
+## What is the agent in LearnPack
+
+LearnPack is an application with various small parts connected to each other. When you run LearnPack inside Visual Studio Code, it is slightly different from running it in a browser. Due to these implementation differences, it is possible to configure LearnPack to open as a VS Code extension (<code>agent = "vscode"</code>) or to open the interface in the browser (<code>agent = "os"</code>).
+
+### At a glance
+
+| Agent | Where the UI opens | How it is set |
+|---|---|---|
+| **vscode** | Inside VS Code as an extension | Auto-detected in VS Code, or set in <code>learn.json</code> under <code>editor.agent</code> |
+| **os** | In your default web browser | Auto-detected when started outside VS Code, or set in <code>learn.json</code> |
+
+## What is the "mode" in LearnPack
+
+LearnPack will notice in which program it was executed to determine the agent, but the agent can also be specified within <code>learn.json</code> in the <code>editor.agent</code> section. This allows users to explicitly define how they want LearnPack to be executed.
+
+If a difference is detected between the detected agent and the suggested one, LearnPack will display a warning. This warning is important to ensure the best user experience, as each agent has its own characteristics and advantages.
+
+For example, if LearnPack detects that it is running in VS Code but the <code>learn.json</code> file suggests that it should run in a browser, a message will be displayed recommending changing the agent to avoid potential compatibility or functionality issues.
+
+<Callout type="tip">
+<b>Tip:</b> Keep <code>editor.agent</code> aligned with where you actually run LearnPack to avoid warnings and ensure the best UI behavior.
+</Callout>
+
+## How to run LearnPack with agent "os" (browser)
+
+<Steps>
+  <Step title="Close VS Code">
+    Save your work and close the VS Code application.
+  </Step>
+  <Step title="Open a terminal">
+    Use your system terminal or command prompt.
+  </Step>
+  <Step title="Go to your project">
+    Navigate to the LearnPack project directory with <code>cd</code>.
+  </Step>
+  <Step title="Start LearnPack">
+    Run: <code>learnpack start</code>
+  </Step>
+</Steps>
+
+## How to run LearnPack from VS Code (agent "vscode")
+
+<Steps>
+  <Step title="Open VS Code">
+    Launch Visual Studio Code on your computer.
+  </Step>
+  <Step title="Install the LearnPack extension">
+    Open the Extensions view (<code>Ctrl+Shift+X</code>), search for <b>LearnPack</b>, then install or enable it.
+  </Step>
+  <Step title="Open the terminal in VS Code">
+    Use the integrated terminal to work in your project directory.
+  </Step>
+  <Step title="Start LearnPack">
+    In the tutorial directory, run: <code>learnpack start</code>
+  </Step>
+</Steps>
+
+## Next up
+
+<Columns cols={2}>
+
+  <div>
+    <Card title="Quickstart for learners" href="/self-hosted/students/quickstart-for-learners" icon="rocket">
+      Open tutorials in the cloud or locally.
+    </Card>
+
+    <Card title="LearnPack controls" href="/self-hosted/students/learnpack-controls" icon="sliders">
+      Run, test, reset, and navigate with ease.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="LearnPack quick start (creators)" href="/self-hosted/creators/learnpack-quick-start" icon="book-open-cover">
+      Set up a project and start building.
+    </Card>
+
+    <Card title="LearnPack configuration" href="/self-hosted/creators/learnpack-configuration" icon="gear">
+      Configure editor agent and other options.
+    </Card>
+  </div>
+
+</Columns>
+
+## See also
+
+- [Telemetry configuration](/self-hosted/creators/telemetry-configuration)  
+- [Accessibility in LearnPack](/self-hosted/students/accessibility-in-learnpack)  
+- [How LearnPack’s AI mentor works](/rigobot/how-learnpacks-ai-mentor-tutor-works)

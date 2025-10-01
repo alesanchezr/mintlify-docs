@@ -1,0 +1,68 @@
+---
+title: "How LearnPack telemetry works"
+description: "Understand what LearnPack collects, where it’s stored, and how it improves the experience. Local-first, non-sensitive usage data with optional streaming."
+---
+
+<Callout type="info">
+<b><span style={{color:"#4F46E5"}}>Local-first telemetry:</span></b> LearnPack stores usage data in <code>.learn/telemetry.json</code> on your machine. The goal is product improvement and better guidance, not personal profiling. 🙂
+</Callout>
+
+# How LearnPack telemetry works
+
+Telemetry is a crucial part of modern apps. It helps teams understand how people use software so they can improve speed, clarity, and reliability. LearnPack introduces telemetry to enhance the experience by tracking key interactions and timings.
+
+## What LearnPack knows about you
+
+LearnPack writes a local file named <code>telemetry.json</code> inside the hidden <code>.learn</code> directory. It logs non-sensitive usage events like compilations, tests, AI interactions (only if you log in), session start and end times, step completion, and when you open a new step.
+
+**Event coverage (at a glance):**
+
+| Event | What is recorded |
+|---|---|
+| **Run button** | Compilation result: code snapshot, stdout, stderr, exit code. |
+| **Run tests** | Test run result: stdout, exit code, source file, execution time, stderr. |
+| **New step** | First time you hit “next” on an exercise, with timing to estimate completion duration. |
+| **AI interaction** | If logged in as a 4Geeks student, interactions with the AI tutor are tracked to refine the LLM and improve tutoring. |
+
+<Callout type="success">
+<b>Outcome:</b> better diagnostics, faster fixes, and a smoother learning flow with context-aware hints.
+</Callout>
+
+**Where the data lives:** locally in <code>.learn/telemetry.json</code>.  
+**Optional streaming:** LearnPack can stream or batch this data to a server you specify for analysis. No sensitive personal data is collected, only app usage needed for improvements.
+
+<Callout type="tip">
+<b>Tip:</b> Creators can configure destinations and policies in <b>Telemetry Configuration</b> to align with internal analytics or compliance.
+</Callout>
+
+## Next up
+
+<Columns cols={2}>
+
+  <div>
+    <Card title="Quickstart for learners" href="/self-hosted/students/quickstart-for-learners" icon="rocket">
+      Open tutorials in the cloud or locally.
+    </Card>
+
+    <Card title="Feedback in LearnPack" href="/self-hosted/students/feedback-in-learnpack" icon="comment">
+      Tests, AI mentoring, and solution videos.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="LearnPack controls" href="/self-hosted/students/learnpack-controls" icon="sliders">
+      Run, test, reset, and navigate with ease.
+    </Card>
+
+    <Card title="Telemetry configuration" href="/self-hosted/creators/telemetry-configuration" icon="gear">
+      Set streaming endpoints, formats, and policies.
+    </Card>
+  </div>
+
+</Columns>
+
+## See also
+
+- [Accessibility in LearnPack](/self-hosted/students/accessibility-in-learnpack)  
+- [LearnPack configuration](/self-hosted/creators/learnpack-configuration)  
+- [How LearnPack’s AI mentor works](/rigobot/how-learnpacks-ai-mentor-tutor-works)
