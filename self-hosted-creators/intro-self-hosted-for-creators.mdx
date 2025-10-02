@@ -1,0 +1,125 @@
+---
+title: "Intro to Self-Hosted for Creators"
+description: "Compare self-hosted LearnPack with paid cloud plans: manual local setup and limited features versus AI generation, Rigobot tutoring, SCORM export, and real-time insights."
+---
+
+### Using LearnPack for Free vs Paid Plans
+
+LearnPack can run **locally for free** or as **paid cloud plans**. The free, self-hosted mode gives full control with manual setup. Paid plans add **AI course creation**, **Rigobot** (AI assistent), **SCORM export**, and **real-time insights**, all optimized for humans and **LLM-powered** workflows. ⚙️
+
+<Columns cols={2}>
+  <div>
+    <Card title="Self-Hosted (Free, Local)" icon="wrench">
+      <b>What you get:</b>
+      <ul style={{ listStyle: 'disc', paddingLeft: '1.2rem', margin: '0.5rem 0' }}>
+        <li>Install: <code>npm install -g @learnpack/learnpack</code></li>
+        <li>Init with <code>learnpack init</code>, edit <b>learn.json</b></li>
+        <li>Write Markdown quizzes, publish via CLI</li>
+        <li>Audit with <code>learnpack audit</code></li>
+      </ul>
+
+      <b>Limitations:</b>
+      <ul style={{ listStyle: 'disc', paddingLeft: '1.2rem', margin: '0.5rem 0' }}>
+        <li>No <b>LearnPack's AI assistent</b></li>
+        <li>No one-click generation</li>
+        <li>No cloud hosting</li>
+      </ul>
+    </Card>
+  </div>
+
+  <div>
+    <Card title="Paid Creator Plans (Cloud)" icon="sparkles">
+      <b>What you unlock:</b>
+      <ul style={{ listStyle: 'disc', paddingLeft: '1.2rem', margin: '0.5rem 0' }}>
+        <li>Fast setup with AI-assisted editing</li>
+        <li><a href="/rigobot/how-learnpacks-ai-mentor-tutor-works"><b>Rigobot</b></a> guidance (context + memory + Socratic)</li>
+        <li>Interactive checks in one click (<a href="/creating-courses/adding-quizzes-projects-and-open-ended-tasks"><b>quizzes & projects</b></a>)</li>
+        <li>Share a link or <a href="/publishing-and-exports/exporting-to-scorm-and-embedding-in-lms"><b>export SCORM</b></a></li>
+        <li>Insight into engagement and progress</li>
+      </ul>
+
+      <b>Pricing:</b>
+      <ul style={{ listStyle: 'disc', paddingLeft: '1.2rem', margin: '0.5rem 0' }}>
+        <li>\${50}/month per teacher <b>+ package cost</b></li>
+      </ul>
+    </Card>
+  </div>
+</Columns>
+
+
+## Self-Hosted (Free, Local Mode)
+
+**What you can do:**
+- Install globally with `npm install -g @learnpack/learnpack`.
+- Initialize tutorials with `learnpack init`.
+- Configure options in **learn.json** (grading, delivery, telemetry).
+- Write quizzes in Markdown.
+- Publish via CLI.
+- Audit with `learnpack audit`.
+
+**Limitations:**
+- No **Rigobot** tutor.
+- No one-click course generation.
+- No cloud hosting.
+- Updates and maintenance are manual.
+
+<Callout type="tip">
+<b><span style={{color:"#4F46E5"}}>Tip for builders:</span></b> If you prefer full local control, start with the free mode, then move content to the cloud when you need AI editing, tutoring, or <b>SCORM</b> portability.
+</Callout>
+
+## Paid Creator Plans (Cloud)
+
+What you unlock:
+- **Fast setup:** answer a few questions, get a full course.
+- **Rigobot integration:** context-aware, memory-based, Socratic prompts (<a href="/rigobot/contextual-guidance-and-socratic-learning"><b>learn more</b></a>).
+- **Interactive elements:** quizzes, projects, assignments in one click (<a href="/creating-courses/adding-quizzes-projects-and-open-ended-tasks"><b>how to add</b></a>).
+- **AI editing:** rewrite, expand, simplify any section.
+- **Cloud publishing:** share a link or <a href="/publishing-and-exports/exporting-to-scorm-and-embedding-in-lms"><b>export SCORM</b></a>.
+- **Insights:** engagement, progress, and frustration tracking (<a href="/self-hosted/creators/telemetry-configuration"><b>telemetry options</b></a>).
+
+<Callout type="success">
+<b><span style={{color:"#4F46E5"}}>Why teams choose Paid:</span></b> faster iteration, embedded <b>Rigobot</b> support in-lesson, and LMS-ready output. See <a href="/rigobot/how-rigobot-improves-completion-rates"><b>how Rigobot improves completion rates</b></a>.
+</Callout>
+
+## Comparison Rubric
+
+| **Feature** | **Free (Self-Hosted)** | **Paid (Cloud, \${50}/month + packages)** |
+| --- | --- | --- |
+| **Installation** | Local via `npm` | Cloud, minimal setup |
+| **Course creation** | Manual init, config, Markdown quizzes | **AI one-click generation** |
+| **Tutor** | None | **Rigobot** (context-aware, Socratic) |
+| **Publishing** | Manual CLI | **Share link** or **SCORM export** |
+| **Editing** | Code/Markdown | **AI editing** (refine, expand, simplify) |
+| **Quizzes** | Markdown checklists | **Auto-generated, interactive, tracked** |
+| **Updates** | Manual edits | **AI-assisted, in seconds** |
+| **Insights** | None | **Real-time analytics** |
+
+## Next up
+
+<Columns cols={2}>
+  <div>
+    <Card title="LearnPack Quick Start" href="/self-hosted/creators/learnpack-quick-start" icon="rocket">
+      Install globally, initialize a project, and scaffold exercises.
+    </Card>
+
+    <Card title="LearnPack Configuration" href="/self-hosted/creators/learnpack-configuration" icon="sliders">
+      Editor, grading, and delivery settings in <b>learn.json</b>.
+    </Card>
+  </div>
+
+  <div>
+    <Card title="Export to SCORM / Embed in LMS" href="/publishing-and-exports/exporting-to-scorm-and-embedding-in-lms" icon="box-open">
+      Publish to your LMS with SCORM or embed directly.
+    </Card>
+
+    <Card title="How LearnPack’s AI Mentor Works" href="/rigobot/how-learnpacks-ai-mentor-tutor-works" icon="robot">
+      See how <b>Rigobot</b> delivers hyper-personalized guidance.
+    </Card>
+  </div>
+</Columns>
+
+## See also
+
+- [self-hosted/creators/grading-learnpack-tutorials](/self-hosted/creators/grading-learnpack-tutorials)  
+- [self-hosted/creators/telemetry-configuration](/self-hosted/creators/telemetry-configuration)  
+- [self-hosted/students/telemetry-in-learnpack](/self-hosted/students/telemetry-in-learnpack)

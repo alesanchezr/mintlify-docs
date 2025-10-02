@@ -7,7 +7,7 @@
     "light": "#EEF2FF",
     "dark": "#3730A3"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/learnpack-icon.svg",
   "navigation": {
     "tabs": [
       {
@@ -123,6 +123,7 @@
         {
           "group": "For Students",
           "pages": [
+            "self-hosted-students/self-hosted-for-students",
             "self-hosted-students/quickstart-for-learners",
             "self-hosted-students/feedback-in-learnpack",
             "self-hosted-students/learnpack-controls",
@@ -134,6 +135,7 @@
         {
           "group": "For Creators",
           "pages": [
+            "self-hosted-creators/intro-self-hosted-for-creators",
             "self-hosted-creators/learnpack-quick-start",
             "self-hosted-creators/grading-learnpack-tutorials",
             "self-hosted-creators/learnpack-configuration",
@@ -151,7 +153,7 @@
       "anchors": [
         {
           "anchor": "Docs",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.google.com/presentation/d/1XiNOVSGt4nL1xgpD4jVwYX8Q4hT7Vm5KfN4iDceuXhg/edit?slide=id.g363a61ae02a_0_0#slide=id.g363a61ae02a_0_0",
           "icon": "book-open-cover"
         },
         {
